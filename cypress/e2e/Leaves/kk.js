@@ -3,5 +3,6 @@ describe("ABC", () => {
     cy.visit("https://example.cypress.io");
 
     cy.log("Abc     ");
+    let a = "";
   });
 });
