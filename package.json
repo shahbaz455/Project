@@ -9,9 +9,7 @@
     "format": "prettier --write ."
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
+    "hooks": {}
   },
   "keywords": [],
   "author": "",
