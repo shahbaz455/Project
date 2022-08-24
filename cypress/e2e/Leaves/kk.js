@@ -4,6 +4,6 @@ describe('ABC', () => {
 
 
 
-        cy.log("Abc")
+          cy.log("Abc")
     })
 })
