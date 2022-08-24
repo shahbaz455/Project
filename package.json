@@ -8,6 +8,11 @@
     "lint": "prettier --check .",
     "format": "prettier --write ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write . && git add -A ."
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,10 +23,5 @@
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo hello"
-    }
   }
 }
