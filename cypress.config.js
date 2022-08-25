@@ -13,10 +13,6 @@ module.exports = defineConfig({
     projectId: "4ff94c",
     reporter: "cypress-multi-reporters",
     reporterOptions: {
-      configFile: "reporter-config.json",
-    },
-    reporter: "cypress-multi-reporters",
-    reporterOptions: {
       reporterEnabled: "mochawesome",
       mochawesomeReporterOptions: {
         "reportDir": "cypress/reports/mocha",
