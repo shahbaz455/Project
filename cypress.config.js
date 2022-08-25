@@ -11,5 +11,9 @@ module.exports = defineConfig({
     watchForFileChanges: false,
     chromeWebSecurity: false,
     projectId: "4ff94c",
+    reporter: "cypress-multi-reporters",
+    reporterOptions: {
+      configFile: "reporter-config.json",
+    },
   },
 });
