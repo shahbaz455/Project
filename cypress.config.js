@@ -11,16 +11,5 @@ module.exports = defineConfig({
     watchForFileChanges: false,
     chromeWebSecurity: false,
     projectId: "4ff94c",
-    reporter: "cypress-multi-reporters",
-    reporterOptions: {
-      reporterEnabled: "mochawesome",
-      mochawesomeReporterOptions: {
-        "reportDir": "cypress/reports/mocha",
-        "quite": true,
-        "overwrite": false,
-        "html": false,
-        "json": true
-      }
-    }
   },
 });
