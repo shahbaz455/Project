@@ -22,13 +22,9 @@ jobs:
         run: npm run test:chrome
         continue-on-error: true
 
-      - name: Copy test execution videos
-        run: |
-          mkdir public
-          
       - name: Merge test results into one
         run: npm run report:merge
-            
+
       - name: Generate HTML report
         run: npm run report:generate
 
@@ -37,3 +33,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
