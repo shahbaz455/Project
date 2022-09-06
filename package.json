@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run --browser chrome",
     "test:chrome": "cypress run --browser chrome",
+    "posttest": "npm run report:merge && npm report:generate"
     "report:merge": "mochawesome-merge cypress/reports/mocha/*.json> cypress/reports/report.json",
     "report:generate": "merge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html",
     "lint": "prettier --check .",
