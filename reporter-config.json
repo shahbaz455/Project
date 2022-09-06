@@ -1,9 +1,0 @@
-{
-  "reporterEnabled": "mochawesome",
-  "mochawesomeReporterOptions": {
-    "files": ["./mochawesome-report/*.json"],
-    "overwrite": false,
-    "html": false,
-    "json": true
-  }
-}
