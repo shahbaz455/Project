@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm cypress run --browser chrome",
-    "test:chrome": "cypress run --browser chrome",
-    "posttest": "npm run report:merge && npm report:generate"
-    "report:merge": "mochawesome-merge cypress/reports/mocha/*.json> cypress/reports/report.json",
-    "report:generate": "merge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html",
+    "pretest": "rimraf -r ./cypress/report/mochawesome-report/*.json",
+    "test": "npm run cypress:test || npm run posttest",
+    "cypress:test": "cypress run",
+    "posttest": "npm run merge-reports && npm run generate-htmlreport",
+    "merge-reports": "npx mochawesome-merge ./cypress/report/mochawesome-report/*.json > ./myreport.json",
+    "generate-htmlreport": "npx marge myreport.json --reportDir ./cypress/report/mochawesome-report",
     "lint": "prettier --check .",
     "format": "prettier --write ."
   },
