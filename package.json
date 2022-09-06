@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --browser chrome",
+    "test": "npm cypress run --browser chrome",
     "test:chrome": "cypress run --browser chrome",
     "posttest": "npm run report:merge && npm report:generate"
     "report:merge": "mochawesome-merge cypress/reports/mocha/*.json> cypress/reports/report.json",
