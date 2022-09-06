@@ -37,4 +37,6 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: public
+          run: |
+            pwd
+          path: ./public
