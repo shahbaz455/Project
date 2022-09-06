@@ -40,4 +40,4 @@ jobs:
           run: |
             pwd
             echo: "Hello"
-          path: ./public
+          path: public
