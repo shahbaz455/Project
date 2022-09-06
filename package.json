@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "rimraf -r ./cypress/report/mochawesome-report/*.json",
-    "test": "npm run cypress:test || npm run posttest",
+    "taleemabadRun": "npm run cypress:test",
     "cypress:test": "cypress run",
     "posttest": "npm run merge-reports && npm run generate-htmlreport",
     "merge-reports": "npx mochawesome-merge ./cypress/report/mochawesome-report/*.json > ./myreport.json",
