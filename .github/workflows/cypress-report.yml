@@ -13,7 +13,7 @@ jobs:
       - name: e2e Tests
         uses: cypress-io/github-action@v2
         with:
-          build: npm run test || true
+          build: npm run taleemabadRun || true
         continue-on-error: true
       - name: Copy test execution videos
         run: |
