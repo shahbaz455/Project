@@ -1,29 +1,29 @@
-name: Create Cypress report
-on:
-  push:
-    branches:
-      - "master"
+name: Taleemabad e2e Tests
+
+on: [workflow_dispatch]
+
 jobs:
-  cypress-e2e-chrome81:
-    name: Run on Chrome 81
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.16.2-chrome81-ff75
+  e2e-Test-Cycle:
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install a project with a clean slate
-        run: |
-          npm ci
-          $(npm bin)/cypress cache path
-          $(npm bin)/cypress cache list
-          $(npm bin)/cypress verify
-
-      - name: Run Cypress tests
-        run: | 
-         mkdir public
-         npm run test
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: e2e Tests
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run test || true
         continue-on-error: true
-
+      - name: Copy test execution videos
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
+      - name: Merge test results into one
+        run: npm run merge-reports
+      - name: Generate HTML report
+        run: npm run generate-htmlreport
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -31,6 +31,7 @@ jobs:
           publish_dir: ./public
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
+
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
