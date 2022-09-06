@@ -19,7 +19,9 @@ jobs:
           $(npm bin)/cypress verify
 
       - name: Run Cypress tests
-        run: npm run test
+        run: | 
+         mkdir public
+         npm run test
         continue-on-error: true
 
       - name: Deploy report page
